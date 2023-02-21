@@ -1,0 +1,213 @@
+html, body {
+  height: 100%;
+  width: 100%;
+    margin: 0;
+    --main: #e656d5;
+    --second: #ff72de;
+    --third: #ff5a5f;
+    --forth: #f5f5f5;
+    --fifth: #ff80f1;
+    --text: #151515;
+    color: var(--forth);
+    user-select: none;
+}
+@font-face {
+    font-family: gatitos;
+    src: url("./fuentes/cattie-font/CattieRegular-EaBG8.ttf");
+}
+.gatitos{
+    font-family: "gatitos";
+    text-align: center;
+    text-transform: uppercase;
+}
+html{
+    background-color: #b3b3b3;
+    background-image: url("./imagenes/fondo.jpg");
+    background-position-x: 50%;
+    background-size: contain;
+}
+body{
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    display: flex;
+    width: 100%;
+    height:auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 400px;
+}
+
+.title{
+    background-color: var(--second);
+    border: solid 5px var(--main);
+    height: 200px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    font-size: 60px;
+    filter: drop-shadow(0px 0px 15px var(--main));
+    box-shadow:0px 0px 15px var(--main) inset;
+}
+.title-text{
+    background-color: #ffe3e8;
+    background-image: linear-gradient(20deg, #f0b7d1 0%, #ffe3e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+}
+.start{
+    margin: 20px; 
+    padding: 15px;
+    height: 80px;
+    width: 90%;
+    border-radius: 20px;
+    border: solid 2px var(--main);
+    background: var(--fifth);
+    font-size: 40px;
+}
+.quiz{
+    display: grid;
+    grid-template-areas: "question question" "respuestaA respuestaB" "respuestaC respuestaD";
+    gap: 15px;
+    padding: 20px;
+    text-align: center;
+    grid-template-rows: minmax(100px, auto) 70px 70px;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+}
+.question, .respuesta, .siguiente{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 4px var(--forth);
+    border-radius: 10px;
+    padding: 12px 8px;
+}
+.respuesta{
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: var(--color);
+    overflow: hidden;
+}
+.respuesta img{
+ max-height: 100%;
+}
+.respuesta:not(.correcta,.nula,.equivocada):hover{
+    box-shadow: 0 0 5px 2px var(--color);  
+}
+.question{
+    grid-area: question;
+    background-color: var(--second);
+    transition: 0.5s;
+}
+.pregunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pregunta img{
+    height: 200px;
+    margin: auto;
+}
+.respuestaA{
+    grid-area: respuestaA;
+     --color: #6320ee;
+}
+.respuestaB{
+    grid-area: respuestaB;
+     --color: #4A8FE7;
+}
+.respuestaC{
+    grid-area: respuestaC;
+     --color: #F17300;
+}
+.respuestaD{
+    grid-area: respuestaD;
+     --color: #CA054D;
+}
+.correcta{
+     --color: #3cdd3c;
+}
+.equivocada{
+     --color: #dd3c3c;
+}
+.nula{
+     --color: #888;
+}
+.resultado{
+    display: grid;
+    grid-template-areas: "imagen texto" "imagen contador" "imagen siguiente";
+    grid-template-rows: 60px 50px 40px;
+    width: 90%;
+    gap: 12px;
+    margin: 8px;
+    align-items: center;
+}
+.oculto{
+    display: none;
+}
+.resultado img{
+    grid-area: imagen;
+    max-height: 100%; 
+    max-width: 100%;
+    margin: auto;
+    border-radius: 15px;
+}
+.resultado p{
+    grid-area: texto;
+}
+.resultado .contador{
+    grid-area: contador;
+    padding: 12px;
+    display: inline-flex;
+    grid-template-columns: repeat(14, 24px);
+    gap: 2px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.resultado .siguiente, .reiniciar{
+    grid-area: siguiente;
+    border: solid 2px var(--forth);
+    background: var(--fifth);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    color: var(--forth);
+}
+.cuenta{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 10px;
+    display: inline-block;
+    opacity: 0;
+    background-color: var(--color);
+}
+.cuenta.equivocada, .cuenta.correcta{
+    opacity: 1;
+}
+.final{
+    font-size: 24px;
+    margin: 5px;
+    padding: 8px;
+    width: 100%;
+}
+.final .reiniciar, .final p{
+ padding: 16px;
+    text-align: center;
+}
